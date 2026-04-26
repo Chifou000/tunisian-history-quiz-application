@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --primary-color: #c5a059;
+  --accent-glow: rgba(197, 160, 89, 0.5);
+}
+
+.theme-islamic {
+  --primary-color: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.5);
+}
+
+.theme-modern {
+  --primary-color: #ef4444;
+  --accent-glow: rgba(239, 68, 68, 0.5);
+}
+
+@theme {
+  --color-primary-gold: var(--primary-color);
+  --color-dark-bg: #0a0a0a;
+}
+
+@layer base {
+  body {
+    background-color: #0a0a0a;
+    color: white;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    text-align: right;
+  }
+}
+
+/* Update gold text and borders dynamically */
+.text-gold-dynamic { color: var(--primary-color); }
+.border-gold-dynamic { border-color: var(--primary-color); }
+.bg-gold-dynamic { background-color: var(--primary-color); }
+
+
+/* Fix for icons and numbers in RTL */
+[dir="rtl"] .lucide {
+  transform: scaleX(1); /* Keep icons correctly oriented */
+}
+
+.amiri {
+  font-family: 'Amiri', serif;
+  line-height: 1.6;
+}
+
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.15; transform: scale(1.02); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle at center, transparent, black);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5a05980;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
